@@ -1,1 +1,1 @@
-# Connect to an API, show some data nothing ground breaking
+# Connect to an API, show some data via React.
