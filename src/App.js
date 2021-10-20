@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Container from './Components/Container';
+import Header from './Components/Header';
+import Dropdown from './Components/Dropdown';
+import Images from './Components/Images';
+import MyModal from './Components/MyModal';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	const [userSelectedValue, setUserSelectedValue] = useState('');
+	const [imageUrl, setImageUrl] = useState('aaaa');
 
+	function userSelected(breed) {
+		setUserSelectedValue(breed);
+	}
+
+	function passImageUrl(url) {
+		//alert('411: ' + url);
+		setImageUrl(url);
+	}
+
+	return (
+		<Container>
+			<Header />
+			<Dropdown getDDSelection={userSelected} />
+			<Images setDDSelection={userSelectedValue} passUrl={passImageUrl} />
+			<MyModal setUrl={imageUrl} />
+			<h1>{imageUrl}</h1>
+		</Container>
+	);
+};
 export default App;
