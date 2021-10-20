@@ -1,1 +1,1 @@
-# Connect to an API, show some data via React.
+# Connect to an API with fetch, show some data via React.
